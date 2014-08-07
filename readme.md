@@ -1,1 +1,11 @@
-https://github.com/leapmotion-examples/javascript/blob/master/v1/screen-position/leap.screen-position.js
+IT LETS U CAST SPELLS WITH A LEAP MOTION
+
+ON WEB PAGES
+
+WITH YR HANDS
+
+AND CSS
+
+IDK
+
+WIP

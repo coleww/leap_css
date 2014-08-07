@@ -1,20 +1,23 @@
-$(document).ready(function() {
+(function() {
+  function getCoord(pointer) {
+  return {
+    x: window.innerWidth / 2 + 3 * pointer.tipPosition[0],
+    y: window.innerHeight - pointer.tipPosition[1],
+    z: 180 + pointer.tipPosition[2],
+    id: pointer.id
+  };
+}
   Leap.loop(function(frame) {
-    for (var i = 0; i < frame.pointables.length && i < 2; i++) {
+    for (var i = 0; i < frame.pointables.length && i < 1; i++) {
       var coord = getCoord(frame.pointables[i]);
-      var leapPoint = Leap.vec3.create(coord.x, coord.y, coord.z); //could be any point
-      var iBox = frame.interactionBox();
-      var normalizedPoint = iBox.normalizePoint(leapPoint, true);
+      el = document.elementFromPoint(coord.x, coord.y)
+      if (el){
 
-      var appX = normalizedPoint.x * window.innerWidth;
-      var appY = (1 - normalizedPoint.y) * window.innerHeight;
-
-
-      console.log(document.elementFromPoint(appX, appY));
+      el.style.backgroundColor = "rgb(" + ~~(Math.random() * 255) + "," + ~~(Math.random() * 255) + "," +   ~~(Math.random() * 255)  +  ")";
     }
-
+    }
   });
-});
+})();
 
 
 
